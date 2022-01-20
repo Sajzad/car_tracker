@@ -30,6 +30,8 @@ This README would normally document whatever steps are necessary to get your app
 
 * Update the database with migrations: ```./manage.py crontab add```.
 
+* We will create a superuser who is actually a manager for the system. Please type ```./manage.py createsuperuser``` and follow the shown process.
+
 * Start the local server: ```./manage.py runserver```.
 
 * Server can be accessed from this link ```http://127.0.0.1:8000/```.
