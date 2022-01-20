@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cars{% endblock %}
+{% block content %}
+	<section id="app">
+		<!-- Modal -->
+		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="staticBackdropLabel">Create City</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      	<form @submit.prevent='createCity()' method="post" enctype="multipart/form-data">
+				    <div class="modal-body">
+				      	<div class="mb-3">
+						  <label for="exampleFormControlInput1" class="form-label">City</label>
+						  <input type="text" v-model='cityName' class="form-control" id="exampleFormControlInput1" placeholder="City Name" required>
+						</div>
+						<div class="mb-3">
+						  <label for="exampleFormControlInput1" class="form-label">City File</label>
+						  <input type="file" @change='handlingFile' class="form-control" id="exampleFormControlInput1" required>
+						</div>
+				    </div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-default" data-bs-dismiss="modal">Create</button>
+				    </div>
+				</form>
+		    </div>
+		  </div>
+		</div>		
+		<!-- Update Modal -->
+		<div class="modal fade" id="update-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="staticBackdropLabel">Update City</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      	<form @submit.prevent='updateCity(city.id)' method="post">
+				    <div class="modal-body">
+				      	<div class="mb-3" v-if='city!=null'>
+						  <label for="exampleFormControlInput1" class="form-label">City Name</label>
+						  <input type="text" v-model='city.name' class="form-control" id="exampleFormControlInput1" placeholder="City Name">
+						</div>
+				    </div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-default" data-bs-dismiss="modal">Create</button>
+				    </div>
+				</form>
+		    </div>
+		  </div>
+		</div>		
+		<!-- Update Modal -->
+		<div class="modal fade" id="assign-car-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="staticBackdropLabel">Assign Car & Operator to City</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      	<form @submit.prevent='assignOperator()' method="post" enctype="multipart/form-data">
+				    <div class="modal-body">
+				    	<div>
+				    		<label for="cars" class="mb-2">Select Cars</label>
+				    		<select id="cars" v-model='CarId' class="form-select" aria-label="Select Operator" required>
+								<option v-for='item in cars' :value="item.id">[[ item.car ]]</option>
+							</select>	
+				    	</div>
+				    	<div class="mt-4">
+				    		<label for="cars" class="mb-2">Select Operator</label>
+
+				    		<select v-model='OperatorId' class="form-select" aria-label="Select Operator" required>
+								<option v-for='item in users' :value='item.id'>[[ item.name ]]</option>
+							</select>	
+				    	</div>				    	
+				    	<div class="mt-4">
+				    		<label for="cars" class="mb-2">Select City</label>
+
+				    		<select v-model='CityId' class="form-select" aria-label="Select Operator" required>
+								<option v-for='item in cities' :value='item.id'>[[ item.name ]]</option>
+							</select>	
+				    	</div>
+			    
+					</div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-default" data-bs-dismiss="modal">Create</button>
+				    </div>
+				</form>
+		    </div>
+		  </div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 offset-md-2">
+				<div class="float-right mb-4">
+					<div v-if='assign_resp != null' class="toast align-items-center text-white bg-primary border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+			  			<div class="d-flex">
+			    			<div class="toast-body">
+			      				[[ assign_resp.msg ]]
+			    			</div>
+			    			<button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+			  			</div>
+					</div>
+				</div>
+				<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">create</button>
+				<button @click='assignmentData()' class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#assign-car-modal">Assign Car</button>
+				<table class="table">
+					 <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">City</th>
+					      <th scope="col">Action</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr v-for='(item, index) in cities'>
+
+					      <th scope="row">[[ index+1 ]]</th>
+					      <td>[[ item.name ]]</td>
+					      <td>
+					      	<button @click.prevent='preData(item.id)' class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#update-modal">update</button>
+					      	<button @click='deleteCity(item.id)' class="btn btn-danger btn-sm">delete</button>
+					      </td>
+					    </tr>
+					  </tbody>
+				</table>
+			</div>
+		</div>
+		
+	</section>
+{% endblock %}
+
+{% block extra_js %}
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<script type="text/javascript" src="{% static 'vue/city.js' %}"></script>
+{% endblock %}

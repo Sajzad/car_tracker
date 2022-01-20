@@ -1,0 +1,30 @@
+  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"><i class="fas fa-bars"></i></button>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title" id="offcanvasExampleLabel">Car Tracker</h4>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="dropdown mt-3">
+        <ul class="list-unstyled">
+          {% if not request.user.is_authenticated %}
+            <li><a class="dropdown-item" href="{% url 'account:login' %}">Signin</a></li>
+          {% endif %}
+          {% if request.user.is_superuser %}
+            <li><a class="dropdown-item" href="{% url 'base:cars' %}">Car</a></li>
+            <li><a class="dropdown-item" href="{% url 'base:users' %}">Users</a></li>
+            <li><a class="dropdown-item" href="{% url 'base:city' %}">City</a></li>
+            <li><a class="dropdown-item" href="{% url 'base:reports' %}">Report</a></li>
+            <li><a class="dropdown-item" href="{% url 'base:tracking' %}">Tracking</a></li>
+          {% endif %}
+          {% if request.user.is_authenticated %}
+            {% if not request.user.is_superuser %}
+              <li><a class="dropdown-item" href="{% url 'base:home' %}">Navigation</a></li>
+            {% endif %}
+            <li><a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>

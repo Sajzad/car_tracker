@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cars{% endblock %}
+{% block content %}
+	<section id="app">
+		<!-- Update Modal -->
+		<div class="modal fade" id="update-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="staticBackdropLabel">Car Position(max rows 20)</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+				    <div class="modal-body">
+				      	<div class="mb-3">
+						  	<table class="table">
+								 <thead>
+								    <tr>
+								      <th scope="col">#</th>
+								      <th scope="col">Lat</th>
+								      <th scope="col">Long</th>
+								      <th scope="col">Time</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    <tr v-for='(item, index) in positions'>
+
+								      <th scope="row">[[ index+1 ]]</th>
+								      <td>[[ item.lat ]]</td>
+								      <td>[[ item.lng ]]</td>
+								      <td>[[ item.timestamp ]]</td>
+								    </tr>
+								  </tbody>
+							</table>
+						</div>
+				    </div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				    </div>
+		    </div>
+		  </div>
+		</div>		
+		<div class="row">
+			<div class="col-md-6 offset-md-2">
+				<table class="table">
+					 <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">operator</th>
+					      <th scope="col">City</th>
+					      <th scope="col">Car</th>
+					      <th scope="col">Assigned At</th>
+					      <th scope="col">Car Position</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr v-for='(item, index) in reports'>
+					      <th scope="row">[[ index+1 ]]</th>
+					      <td>[[ item.operator.unique_name ]]</td>
+					      <td>[[ item.city.name ]]</td>
+					      <td>[[ item.car.car ]]</td>
+					      <td>[[ item.timestamp ]]</td>
+					      <td>
+					      	<button @click.prevent='carPosition(item.id)' class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#update-modal">map</button>
+					      </td>
+					    </tr>
+					  </tbody>
+				</table>
+			</div>
+		</div>
+		
+	</section>
+{% endblock %}
+
+{% block extra_js %}
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<script type="text/javascript" src="{% static 'vue/reports.js' %}"></script>
+{% endblock %}

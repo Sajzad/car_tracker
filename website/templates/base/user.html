@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cars{% endblock %}
+{% block content %}
+	<section id="app" class="container">
+		<!-- Modal -->
+		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="staticBackdropLabel">Create Operator</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      	<form @submit.prevent='createUser()' method="post">
+				    <div class="modal-body">
+				      	<div class="mb-3">
+						  <label for="exampleFormControlInput1" class="form-label">Update Operator</label>
+						  <input type="text" v-model='userName' class="form-control" id="exampleFormControlInput1" placeholder="Operator Name">
+						</div>
+				    </div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-default" data-bs-dismiss="modal">Create</button>
+				    </div>
+				</form>
+		    </div>
+		  </div>
+		</div>		
+		<!-- Update Modal -->
+		<div class="modal fade" id="update-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="staticBackdropLabel">Update Car</h5>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      	<form @submit.prevent='updateUser(user.id)' method="post">
+				    <div class="modal-body">
+				      	<div class="mb-3" v-if='user!=null'>
+						  <label for="exampleFormControlInput1" class="form-label">Operator Name</label>
+						  <input type="text" v-model='user.name' class="form-control" id="exampleFormControlInput1" placeholder="Operator Name">
+						</div>
+				    </div>
+				    <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				        <button type="submit" class="btn btn-default" data-bs-dismiss="modal">Create</button>
+				    </div>
+				</form>
+		    </div>
+		  </div>
+		</div>
+		<div>
+			<div>
+				<h3>Operators & Managers</h3>
+			</div>
+		</div>
+		<div class="row pt-4">
+			<div class="col-md-8">
+				<table class="table">
+					<button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">create</button>
+
+					 <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">Operator Name</th>
+					      <th scope="col">Code</th>
+					      <th scope="col">Action</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr v-for='(item, index) in users'>
+
+					      <th scope="row">[[ index+1 ]]</th>
+					      <td>[[ item.name ]]</td>
+					      <td>[[ item.code ]]</td>
+					      <td>
+					      	<button @click.prevent='preData(item.id)' class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#update-modal">update</button>
+					      	<button @click='deleteUser(item.id)' class="btn btn-danger btn-sm">delete</button>
+					      </td>
+					    </tr>
+					  </tbody>
+				</table>
+			</div>
+			<div class="col-md-4">
+				<table class="table">
+					 <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">Manager Name</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr v-for='(item, index) in managers'>
+
+					      <th scope="row">[[ index+1 ]]</th>
+					      <td>[[ item.username ]]</td>
+					    </tr>
+					  </tbody>
+				</table>
+			</div>
+		</div>
+		
+	</section>
+{% endblock %}
+
+{% block extra_js %}
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+	<script type="text/javascript" src="{% static 'vue/user.js' %}"></script>
+{% endblock %}
