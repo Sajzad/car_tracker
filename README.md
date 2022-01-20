@@ -36,7 +36,10 @@ This README would normally document whatever steps are necessary to get your app
 
 * Server can be accessed from this link ```http://127.0.0.1:8000/```.
 
+* If you want manager access please go ```http://127.0.0.1:8000/admin```.
+
 ### How do I get set up PostGreSQL? ###
+
 1. First install DB and necessary packages
 ```
 sudo apt update
@@ -63,3 +66,9 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
 
 ```
 Now we are finished. We will set db_name, user and password in the settings.py. Now we can quit the prompt typing  ```\q```
+
+### Frontend with snapshots ###
+
+1. First let's access as a superuser/manager from this link .```http://127.0.0.1:8000/admin``` and then ```http://127.0.0.1:8000/``` 
+
+2. 
