@@ -28,7 +28,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Update the database with migrations: ```./manage.py migrate```.
 
-* Update the database with migrations: ```./manage.py crontab add```.
+* Now we will initiate the crontab: ```./manage.py crontab add```. type ```crontab -e``` to check cronjob is added right away.
 
 * We will create a superuser who is actually a manager for the system. Please type ```./manage.py createsuperuser``` and follow the shown process.
 
