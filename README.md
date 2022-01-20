@@ -20,7 +20,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Install required dependencies: ```pip install -r requirements.txt```.
 
-* For the development server, environment variable may interrupt crontab, to solve it requires few extra steps. so to reduce the hassle, 	use hard coded values in the development server.
+* For the development server, environment variable may interrupt crontab, to solve it requires few extra steps. so to reduce the hassle, 	I would prefer hard coded values in the development server.
 
 * Go to website dir where the manage.py file.
 
@@ -28,6 +28,10 @@ This README would normally document whatever steps are necessary to get your app
 
 * Update the database with migrations: ```./manage.py migrate```.
 
+* Update the database with migrations: ```./manage.py crontab add```.
+
 * Start the local server: ```./manage.py runserver```.
 
 * Server can be accessed from this link ```http://127.0.0.1:8000/```.
+
+### How do I get set up PostGreSQL? ###
