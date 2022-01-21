@@ -101,10 +101,10 @@ Now we are finished. We will set db_name, user and password in the settings.py. 
 4. City - Create City and assign car and user/operator to a city, then you will receive a 6 digit code which will be used for login for the particular operator.
 
       
-      ![city](https://user-images.githubusercontent.com/42478821/150472742-7cc9e9f8-b3dd-4341-bcb2-8ace61e11618.png)
+      ![city](https://user-images.githubusercontent.com/42478821/150472742-7cc9e9f8-b3dd-4341-bcb2-8ace61e11618.png)   
       
-      
-      ![code](https://user-images.githubusercontent.com/42478821/150477892-a180342b-d981-4d78-b329-8d15d95a8baf.png)
+     ![code](https://user-images.githubusercontent.com/42478821/150478261-afaf20d8-dc23-4fae-93dd-79f968774770.png)
+
 
 
 5. Tracking
