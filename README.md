@@ -2,10 +2,9 @@
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### Tech. used in the porject? ###
-
-* DRF
 * python >=3.6
-* Django
+* Javascript
+* Django Rest Framework
 * Vue Js
 
 ### How do I get set up? ###
