@@ -82,7 +82,7 @@ Now we are finished. We will set db_name, user and password in the settings.py. 
 
 ### Manager Dashboard ###
 
-1. First let's access as a superuser/manager from this link .```http://127.0.0.1:8000/admin``` and then ```http://127.0.0.1:8000/``` .Side menu has the all modules.
+1. First let's access as a superuser/manager from this link .```http://127.0.0.1:8000/admin``` and then ```http://127.0.0.1:8000/``` . Side menu has all the modules.
 
 
 ![dashboard-managers](https://user-images.githubusercontent.com/42478821/150470840-7c0bb2e5-e336-4da1-9e1b-09b54499d1a2.png)
@@ -98,10 +98,14 @@ Now we are finished. We will set db_name, user and password in the settings.py. 
 
       ![users](https://user-images.githubusercontent.com/42478821/150472686-e90c3800-50e5-4580-8d97-2e1bf7311da6.png)
 
-4. City
+4. City - Create City and assign car and user/operator to a city, then you will receive a 6 digit code which will be used for login for the particular operator.
 
       
       ![city](https://user-images.githubusercontent.com/42478821/150472742-7cc9e9f8-b3dd-4341-bcb2-8ace61e11618.png)
+      
+      
+      ![code](https://user-images.githubusercontent.com/42478821/150477892-a180342b-d981-4d78-b329-8d15d95a8baf.png)
+
 
 5. Tracking
 
