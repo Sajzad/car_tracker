@@ -47,10 +47,20 @@ sudo apt update
 sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
 ```
 2. Install the adaptor 
-```pip install psycopg2-binary``` 
-3. Now, we are going to jump right in Creating Database and User. 
-```sudo -u postgres psql``` 
-```CREATE DATABASE myproject;``` 
+
+
+```
+pip install psycopg2-binary
+``` 
+3. Now, we are going to jump right in Creating Database and User.
+
+
+```
+sudo -u postgres psql
+``` 
+```
+CREATE DATABASE myproject;
+``` 
 ```
 USER myprojectuser WITH PASSWORD 'password';
 ```
@@ -64,7 +74,7 @@ ALTER ROLE myprojectuser SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
 
 ```
-Now we are finished. We will set db_name, user and password in the settings.py. Now we can quit the prompt typing  ```\q```
+Now we are finished. We will set db_name, user and password in the settings.py. We can quit the prompt typing  ```\q```
 
 # Frontend with snapshots
 
