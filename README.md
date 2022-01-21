@@ -66,8 +66,47 @@ GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
 ```
 Now we are finished. We will set db_name, user and password in the settings.py. Now we can quit the prompt typing  ```\q```
 
-### Frontend with snapshots ###
+# Frontend with snapshots
 
-1. First let's access as a superuser/manager from this link .```http://127.0.0.1:8000/admin``` and then ```http://127.0.0.1:8000/``` 
+# Manager Dashboard
 
-2. 
+1. First let's access as a superuser/manager from this link .```http://127.0.0.1:8000/admin``` and then ```http://127.0.0.1:8000/``` .Side menu has the all modules.
+
+
+![dashboard-managers](https://user-images.githubusercontent.com/42478821/150470840-7c0bb2e5-e336-4da1-9e1b-09b54499d1a2.png)
+
+
+2. Car module
+
+
+      ![car](https://user-images.githubusercontent.com/42478821/150472632-15bc197e-83dd-46dc-a6f0-2d37cfa91a61.png)
+
+3. Users
+
+
+      ![users](https://user-images.githubusercontent.com/42478821/150472686-e90c3800-50e5-4580-8d97-2e1bf7311da6.png)
+
+4. City
+
+      
+      ![city](https://user-images.githubusercontent.com/42478821/150472742-7cc9e9f8-b3dd-4341-bcb2-8ace61e11618.png)
+
+5. Tracking
+
+
+      ![tracking](https://user-images.githubusercontent.com/42478821/150472784-312e06ff-2eb0-4c78-acca-fe4156a65092.png)
+
+
+# Operator Dashboard
+
+1. Login - Please provide try to login with 6 digit code being given at the time of assignment. Once login is successful, Corresponding file must be prompted to download. Please refresh the page manually, modules will be available on the side menu. 
+
+
+![user-login](https://user-images.githubusercontent.com/42478821/150473401-16d0aea3-5764-45bf-8ab8-fb999de1b642.png)
+
+2. Navigation
+
+
+![navigation](https://user-images.githubusercontent.com/42478821/150474007-54812fe5-aa84-4ec8-aeec-d39998433ea4.png)
+
+
