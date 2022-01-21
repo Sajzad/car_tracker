@@ -35,7 +35,7 @@ This README would normally document whatever steps are necessary to get your app
 
 * Server can be accessed from this link ```http://127.0.0.1:8000/```.
 
-* If you want manager access please go ```http://127.0.0.1:8000/admin```.
+* If you want superuser/manager access please go ```http://127.0.0.1:8000/admin```.
 
 ### How do I get set up PostGreSQL? ###
 
