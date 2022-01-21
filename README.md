@@ -6,6 +6,8 @@ This README would normally document whatever steps are necessary to get your app
 * Javascript
 * Django Rest Framework
 * Vue Js
+* PostGreSQL
+* Testing: Postman
 
 ### How do I get set up? ###
 
