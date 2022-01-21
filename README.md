@@ -68,7 +68,7 @@ Now we are finished. We will set db_name, user and password in the settings.py. 
 
 # Frontend with snapshots
 
-# Manager Dashboard
+### Manager Dashboard ###
 
 1. First let's access as a superuser/manager from this link .```http://127.0.0.1:8000/admin``` and then ```http://127.0.0.1:8000/``` .Side menu has the all modules.
 
@@ -97,7 +97,7 @@ Now we are finished. We will set db_name, user and password in the settings.py. 
       ![tracking](https://user-images.githubusercontent.com/42478821/150472784-312e06ff-2eb0-4c78-acca-fe4156a65092.png)
 
 
-# Operator Dashboard
+### Operator Dashboard ###
 
 1. Login - Please provide try to login with 6 digit code being given at the time of assignment. Once login is successful, Corresponding file must be prompted to download. Please refresh the page manually, modules will be available on the side menu. 
 
