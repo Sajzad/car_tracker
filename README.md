@@ -48,7 +48,7 @@ sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
 ```
 2. Install the adaptor 
 ```pip install psycopg2-binary``` 
-3. Now, we are going to jump right in Creating Datebase and User. 
+3. Now, we are going to jump right in Creating Database and User. 
 ```sudo -u postgres psql``` 
 ```CREATE DATABASE myproject;``` 
 ```
