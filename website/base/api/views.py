@@ -254,7 +254,7 @@ class AssignmentView(APIView):
             op_obj = Operator.objects.get(id=user_id)
             if not User.objects.filter(username=op_obj.unique_name).exists():
                 User.objects.create_user(username=op_obj.unique_name, password=str(op_obj.code))           
-            res = {"msg": f'Code to login for {op_obj.unique_name} is {op_obj.code}', "data": None, "success": True}
+            res = {"msg": f'Login code for {op_obj.unique_name} is {op_obj.code}', "data": None, "success": True}
             return Response(data=res, status=status.HTTP_200_OK)
         except Exception as e:
             print(e)

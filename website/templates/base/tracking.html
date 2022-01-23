@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}Cars{% endblock %}
 {% block content %}
-	<section id="app">
+	<section id="app" class="container">
 		<!-- Update Modal -->
 		<div class="modal fade" id="update-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		  <div class="modal-dialog">
@@ -41,6 +41,8 @@
 		  </div>
 		</div>		
 		<div class="row">
+			<h2 class="mb-3">Tracking</h2>
+
 			<div class="col-md-6 offset-md-2">
 				<table class="table">
 					 <thead>
@@ -73,7 +75,5 @@
 {% endblock %}
 
 {% block extra_js %}
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 	<script type="text/javascript" src="{% static 'vue/tracking.js' %}"></script>
 {% endblock %}
